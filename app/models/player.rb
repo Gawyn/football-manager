@@ -4,8 +4,15 @@ class Player < ActiveRecord::Base
 
   belongs_to :team
 
+  before_validation :set_all!, :on => :create
+
   validates_presence_of :name, :surname, :position, 
     :quality, :team_id
   validates_inclusion_of :position, in: POSITIONS
   validates_inclusion_of :quality, in: QUALITY_RANGE
+
+  def set_all!
+    self.position ||= POSITIONS.sample
+    self.quality ||= QUALITY_RANGE.to_a.sample
+  end
 end
