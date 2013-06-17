@@ -21,11 +21,11 @@ class Player < ActiveRecord::Base
 
   class << self
     def generate(*attributes)
-      new(attributes).set_default
+      new(*attributes).set_default
     end
 
-    def generate!
-      player = generate
+    def generate!(*attributes)
+      player = generate(*attributes)
       player.save!
       player
     end
