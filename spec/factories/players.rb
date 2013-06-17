@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :player do
-    name "Lionel"
-    surname "Messi"
+    name Player::NAMES.sample
+    surname Player::SURNAMES.sample
     position Player::POSITIONS.sample
     quality Player::QUALITY_RANGE.to_a.sample
     team

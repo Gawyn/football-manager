@@ -1,22 +1,15 @@
 require 'spec_helper'
 
 describe Player do
-  subject { FactoryGirl.build :player }
-
-  describe :hooks do
-    describe :set_all! do
+  describe "class methods" do
+    describe :generate! do
       before do
-        subject.quality = nil
-        subject.position = nil
-        subject.valid?
+        Player.generate!
+        @player = Player.first
       end
 
-      it "should set a random quality" do
-        subject.quality.should_not be_nil
-      end
-
-      it "should set a random position" do
-        subject.position.should_not be_nil
+      it "should have created a player" do
+        @player.should_not be_nil
       end
     end
   end
