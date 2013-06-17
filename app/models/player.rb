@@ -1,5 +1,5 @@
 class Player < ActiveRecord::Base
-  include Names
+  include PlayerNames
 
   POSITIONS = %i(goalkeeper defender midfielder striker)
   QUALITY_RANGE = 1..999

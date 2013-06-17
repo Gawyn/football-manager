@@ -1,4 +1,4 @@
-module Names
+module PlayerNames
   NAMES = [ "Antonio", "José", "Manuel", "Francisco", "Juan",
     "David", "José Antonio",  "José Luis", "Jesús", "Javier",
     "Carlos", "Miguel", "Pedro", "Rafael", "José Manuel",
