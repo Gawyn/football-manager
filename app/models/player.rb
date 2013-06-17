@@ -30,11 +30,23 @@ class Player < ActiveRecord::Base
   validates_inclusion_of :position, in: POSITIONS
   validates_inclusion_of :quality, in: QUALITY_RANGE
 
+  def set_default
+    self.name ||= NAMES.sample
+    self.surname ||= SURNAMES.sample
+    self.position ||= POSITIONS.sample
+    self.quality ||= QUALITY_RANGE.to_a.sample
+    self
+  end
+
   class << self
+    def generate(*attributes)
+      new(attributes).set_default
+    end
+
     def generate!
-      create( name: NAMES.sample, surname: SURNAMES.sample,
-        position: POSITIONS.sample, 
-        quality: QUALITY_RANGE.to_a.sample )
+      player = generate
+      player.save!
+      player
     end
   end
 end
