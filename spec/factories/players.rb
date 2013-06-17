@@ -5,7 +5,7 @@ FactoryGirl.define do
     name "Lionel"
     surname "Messi"
     position Player::POSITIONS.sample
-    quality (1..999).to_a.sample
+    quality Player::QUALITY_RANGE.to_a.sample
     team
 
     Player::POSITIONS.each do |player_position|
