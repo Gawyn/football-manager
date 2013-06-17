@@ -26,7 +26,7 @@ class Player < ActiveRecord::Base
   belongs_to :team
 
   validates_presence_of :name, :surname, :position, 
-    :quality, :team_id
+    :quality
   validates_inclusion_of :position, in: POSITIONS
   validates_inclusion_of :quality, in: QUALITY_RANGE
 
