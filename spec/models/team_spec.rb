@@ -8,7 +8,7 @@ describe Team do
       end
 
       it "should have created 22 players" do
-        @team.players.count == 22
+        @team.players.count == 11
       end
     end
   end
