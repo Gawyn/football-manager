@@ -21,6 +21,9 @@ gem 'jquery-rails'
 # Backbone
 gem 'backbone-on-rails'
 
+# Slim template language for Rails
+gem 'slim-rails'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'sqlite3'
