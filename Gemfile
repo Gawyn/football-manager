@@ -18,6 +18,7 @@ group :development, :test do
 end
 
 group :assets do
+  gem 'backbone-on-rails'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'jquery-rails'
   gem 'sass-rails', '~> 4.0.0.rc2'
