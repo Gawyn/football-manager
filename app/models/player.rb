@@ -12,7 +12,7 @@ class Player < ActiveRecord::Base
   validates_inclusion_of :quality, in: QUALITY_RANGE
 
   POSITIONS.each do |position|
-    scope position.to_s.pluralize, where(position: position)
+    scope position.to_s.pluralize, -> { where(position: position) }
   end
 
   def set_default
