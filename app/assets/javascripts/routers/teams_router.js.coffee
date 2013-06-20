@@ -10,7 +10,10 @@ class FootballManager.Routers.Teams extends Backbone.Router
                 
   index: ->
     view = new FootballManager.Views.TeamsIndex(collection: @collection)
-    $('#container').html(view.render().el)
+    $('#left-container').html(view.render().el)
 
   show: (id) ->
-    alert "Team #{id}"
+    @model = new FootballManager.Models.Team(id: id)
+    @model.fetch()
+    view = new FootballManager.Views.Team(model: @model)
+    $('#right-container').html(view.render().el)

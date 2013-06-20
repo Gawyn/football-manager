@@ -1,1 +1,5 @@
+<a href="#teams/
+<%= @team.get('id') %>
+">
 <%= @team.get('name') %>
+</a>
