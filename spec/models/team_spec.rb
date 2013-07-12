@@ -7,7 +7,7 @@ describe Team do
         @team = FactoryGirl.create :team
       end
 
-      it "should have created 22 players" do
+      it "should have created 11 players" do
         @team.players.count == 11
       end
     end
