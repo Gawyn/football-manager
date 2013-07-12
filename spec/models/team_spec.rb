@@ -9,14 +9,27 @@ describe Team do
     it { should respond_to :players }
   end
 
+  describe :validations do
+    it "should not be valid without exactly 11 starting players" do
+      @team = FactoryGirl.create :team
+      player = @team.players.substitute.first
+      player.update_attribute(:starting, true)
+      @team.should_not be_valid
+    end
+  end
+
   describe :hooks do
     describe :create_roster! do
       before do
         @team = FactoryGirl.create :team
       end
 
-      it "should have created 11 players" do
-        @team.players.count == 11
+      it "should have created 22 players" do
+        @team.players.count == 22
+      end
+
+      it "should have 11 starting users" do
+        @team.players.starting.count == 11
       end
     end
   end

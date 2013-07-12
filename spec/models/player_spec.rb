@@ -8,6 +8,7 @@ describe Player do
     it { should respond_to :surname }
     it { should respond_to :position }
     it { should respond_to :quality }
+    it { should respond_to :starting }
   end
 
   describe :associations do
