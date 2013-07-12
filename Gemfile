@@ -24,6 +24,9 @@ gem 'backbone-on-rails'
 # Slim template language for Rails
 gem 'slim-rails'
 
+# Front-end framework
+gem 'zurb-foundation'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'sqlite3'
