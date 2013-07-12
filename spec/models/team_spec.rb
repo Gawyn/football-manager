@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Team do
+  describe :attributes do
+    it { should respond_to :name }
+  end
+
+  describe :associations do
+    it { should respond_to :players }
+  end
+
   describe :hooks do
     describe :create_roster! do
       before do

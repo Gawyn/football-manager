@@ -1,6 +1,19 @@
 require 'spec_helper'
 
 describe Player do
+  subject { FactoryGirl.build :player }
+
+  describe :attributes do
+    it { should respond_to :name }
+    it { should respond_to :surname }
+    it { should respond_to :position }
+    it { should respond_to :quality }
+  end
+
+  describe :associations do
+    it { should respond_to :team }
+  end
+
   describe "class methods" do
     describe :generate! do
       describe "without attributes" do
