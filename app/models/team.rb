@@ -20,8 +20,8 @@ class Team < ActiveRecord::Base
   private
 
   def create_roster!
-    [[:goalkeeper,1], [:defender, 4], [:midfielder, 4], 
-      [:striker, 2]].each do |position, number| 
+    [[:goalkeeper,2], [:defender, 8], [:midfielder, 8], 
+      [:striker, 4]].each do |position, number| 
       number.times do
         players << Player.generate!(position: position)
       end
