@@ -3,6 +3,7 @@ class Team < ActiveRecord::Base
 
   validates_presence_of :name
   validates_uniqueness_of :name
+  validate :starting_players_number  
 
   after_create :create_roster!
 
@@ -25,6 +26,12 @@ class Team < ActiveRecord::Base
       number.times do
         players << Player.generate!(position: position)
       end
+    end
+  end
+  
+  def starting_players_number
+    if players.where(:starting => true).count != 11
+      errors.add(:starting_players_number, "the number of players is different than 11")
     end
   end
 end
