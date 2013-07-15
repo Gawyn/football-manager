@@ -28,15 +28,29 @@ class Team < ActiveRecord::Base
 		self.players << Player.generate(position: position)
       end
     end
-    players.select { |p| p.position == :goalkeeper }.sample(1).each(&:set_starting!)
-    players.select { |p| p.position == :defender }.sample(4).each(&:set_starting!)
-    players.select { |p| p.position == :midfielder }.sample(4).each(&:set_starting!)
-    players.select { |p| p.position == :striker }.sample(2).each(&:set_starting!)
+    #players.select { |p| p.position == :goalkeeper }.sample(1).each(&:set_starting!)
+    #players.select { |p| p.position == :defender }.sample(4).each(&:set_starting!)
+    #players.select { |p| p.position == :midfielder }.sample(4).each(&:set_starting!)
+    #players.select { |p| p.position == :striker }.sample(2).each(&:set_starting!)
+    select_best_players!
+  end
+  
+  def select_best_players!
+    [[:goalkeeper,1], [:defender, 4], [:midfielder, 4], 
+    [:striker, 2]].each do |position, number|
+      players.select { |p| p.position == position }.sort_by{|p| -p.quality}.take(number).each(&:set_starting!)
+    end
   end
   
   def starting_players_number
-	if players.select{ |player| player.starting }.size != 11
-      errors.add(:starting_players_number, "the number of players is different than 11")
-    end
+	if new_record?
+	  if players.select{ |player| player.starting }.size != 11
+	    errors.add(:starting_players_number, "the number of players is different than 11")
+	  end
+	else
+	  if players.starting.count != 11
+	    errors.add(:starting_players_number, "the number of players is different than 11")
+	  end
+	end
   end
 end
