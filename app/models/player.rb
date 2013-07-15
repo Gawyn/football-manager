@@ -15,6 +15,7 @@ class Player < ActiveRecord::Base
     scope position.to_s.pluralize, -> { where(position: position) }
   end
   
+  scope :starting, -> { where(:starting => true) }
   scope :substitute, -> { where(:starting => false) }
 
   def set_default
@@ -23,6 +24,10 @@ class Player < ActiveRecord::Base
     self.position ||= POSITIONS.sample
     self.quality ||= QUALITY_RANGE.to_a.sample
     self
+  end
+  
+  def set_starting!
+	self.starting = true
   end
 
   class << self
