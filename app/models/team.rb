@@ -25,9 +25,7 @@ class Team < ActiveRecord::Base
     [[:goalkeeper,2], [:defender, 8], [:midfielder, 8], 
       [:striker, 4]].each do |position, number| 
       number.times do
-		player = Player.generate(position: position)
-		aux_players << player
-		self.players << player
+		self.players << Player.generate(position: position)
       end
     end
     players.select { |p| p.position == :goalkeeper }.sample(1).each(&:set_starting!)
