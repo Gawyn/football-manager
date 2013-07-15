@@ -14,6 +14,8 @@ class Player < ActiveRecord::Base
   POSITIONS.each do |position|
     scope position.to_s.pluralize, -> { where(position: position) }
   end
+  
+  scope :substitute, -> { where(:starting => false) }
 
   def set_default
     self.name ||= NAMES.sample
