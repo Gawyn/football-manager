@@ -24,6 +24,9 @@ gem 'slim-rails'
 # Front-end framework
 gem 'zurb-foundation'
 
+# Decorator
+gem 'draper'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'sqlite3'
@@ -32,6 +35,7 @@ end
 # Development & Test
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :doc do
