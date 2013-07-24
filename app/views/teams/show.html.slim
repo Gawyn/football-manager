@@ -1,1 +1,5 @@
 h2 = @team.name
+
+.players
+  - @team.players.each do |player|
+    = render "players/show", player: player
