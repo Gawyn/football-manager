@@ -24,6 +24,9 @@ gem 'slim-rails'
 # Front-end framework
 gem 'zurb-foundation'
 
+# Decorator
+gem 'draper'
+
 group :test do
   gem 'factory_girl_rails'
   gem 'sqlite3'
