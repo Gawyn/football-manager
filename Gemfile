@@ -18,9 +18,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # Jquery Framework
 gem 'jquery-rails'
 
-# Backbone
-gem 'backbone-on-rails'
-
 # Slim template language for Rails
 gem 'slim-rails'
 
