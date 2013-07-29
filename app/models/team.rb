@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
   has_many :players
-  has_many :leaguePositions, :as => :taggable ##
+  has_many :leaguePositions ##
   
   validates_presence_of :name
   validates_uniqueness_of :name
