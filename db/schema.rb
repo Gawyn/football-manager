@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712162007) do
+ActiveRecord::Schema.define(version: 20130723165451) do
+
+  create_table "league_positions", force: true do |t|
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "team_id"
+    t.integer  "league_id"
+  end
+
+  create_table "leagues", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "matches", force: true do |t|
     t.integer  "home_team_id"
@@ -21,6 +34,7 @@ ActiveRecord::Schema.define(version: 20130712162007) do
     t.boolean  "pending",         default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "date"
   end
 
   create_table "players", force: true do |t|
@@ -38,6 +52,7 @@ ActiveRecord::Schema.define(version: 20130712162007) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "league_id"
   end
 
 end

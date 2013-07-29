@@ -2,6 +2,5 @@
 
 FactoryGirl.define do
   factory :league do
-    number 1
   end
 end

@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :league_position do
-    number 1
+    point 1
   end
 end
