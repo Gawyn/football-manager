@@ -1,5 +1,4 @@
 class League < ActiveRecord::Base
-  has_many :leaguePositions, :as => :taggable
-  has_many :matches
-  
+  has_many: :teams
+  has_many: :league_positions
 end

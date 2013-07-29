@@ -1,3 +1,4 @@
 class LeaguePosition < ActiveRecord::Base
-  belongs_to :taggable, :polymorphic => true
+  belongs_to :league
+  belongs_to :team
 end
