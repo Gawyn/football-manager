@@ -3,3 +3,5 @@
 .row
   #left-container.large-2.columns
   #right-container.large-10.columns
+    - unless current_user
+      = link_to "Login", "/auth/facebook"
