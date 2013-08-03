@@ -1,9 +1,2 @@
 .row
   h1 Football Manager
-.row
-  #left-container.large-2.columns
-  #right-container.large-10.columns
-    - if current_user
-      = link_to "Logout", auth_destroy_path
-    - else current_user
-      = link_to "Login", "/auth/facebook"
