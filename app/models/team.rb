@@ -1,4 +1,5 @@
 class Team < ActiveRecord::Base
+  belongs_to :user
   has_many :players
 
   validates_presence_of :name
@@ -21,17 +22,14 @@ class Team < ActiveRecord::Base
   private
 
   def create_roster!
-	aux_players = []
+    aux_players = []
     [[:goalkeeper,2], [:defender, 8], [:midfielder, 8], 
-      [:striker, 4]].each do |position, number| 
+    [:striker, 4]].each do |position, number| 
       number.times do
-		self.players << Player.generate(position: position)
+        self.players << Player.generate(position: position)
       end
     end
-    #players.select { |p| p.position == :goalkeeper }.sample(1).each(&:set_starting!)
-    #players.select { |p| p.position == :defender }.sample(4).each(&:set_starting!)
-    #players.select { |p| p.position == :midfielder }.sample(4).each(&:set_starting!)
-    #players.select { |p| p.position == :striker }.sample(2).each(&:set_starting!)
+
     select_best_players!
   end
   
@@ -43,14 +41,14 @@ class Team < ActiveRecord::Base
   end
   
   def starting_players_number
-	if new_record?
-	  if players.select{ |player| player.starting }.size != 11
-	    errors.add(:starting_players_number, "the number of players is different than 11")
-	  end
-	else
-	  if players.starting.count != 11
-	    errors.add(:starting_players_number, "the number of players is different than 11")
-	  end
-	end
+    if new_record?
+      if players.select{ |player| player.starting }.size != 11
+        errors.add(:starting_players_number, "the number of players is different than 11")
+      end
+    else
+      if players.starting.count != 11
+        errors.add(:starting_players_number, "the number of players is different than 11")
+      end
+    end
   end
 end
