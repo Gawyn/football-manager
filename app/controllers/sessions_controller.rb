@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
 
-    redirect_to root_path
+    url_path = user.team ? team_path : new_team_path
+    redirect_to url_path
   end
 
   def destroy
