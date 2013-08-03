@@ -4,6 +4,10 @@ class TeamsController < ApplicationController
     @players = @team.players.decorate
   end
 
+  def new
+    redirect_to root_path if !current_user || current_user.team
+  end
+
   def create
     @team = Team.new(name: params[:team_name])
     @team.user = current_user
