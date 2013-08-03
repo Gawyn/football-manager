@@ -7,6 +7,7 @@ describe Team do
 
   describe :associations do
     it { should respond_to :players }
+    it { should respond_to :user }
   end
 
   describe :validations do
