@@ -33,4 +33,18 @@ FootballManager::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+  OmniAuth.config.test_mode = true
+
+  facebook_omniauth = { 'provider' => 'facebook',
+    'uid' => '12345',
+    'info' => {
+      'nickname' => 'facebook_user',
+      'email' => 'facebook_user@itnig.net'
+    },
+    'credentials' => {
+      'token' => '89sjd98as'
+    }
+  }
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new facebook_omniauth
 end
