@@ -24,6 +24,9 @@ gem 'slim-rails'
 # Front-end framework
 gem 'zurb-foundation'
 
+# Facebook Omniauth
+gem 'omniauth-facebook'
+
 # Decorator
 gem 'draper'
 
