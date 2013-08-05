@@ -27,7 +27,7 @@ class Player < ActiveRecord::Base
   end
   
   def set_starting!
-	self.starting = true
+    self.starting = true
   end
 
   class << self

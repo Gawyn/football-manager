@@ -7,4 +7,11 @@ html
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
-  body = yield
+  body 
+  .large-12.columns
+    #headbar
+      - if current_user
+        = link_to "Logout", auth_destroy_path
+      - else current_user
+        = link_to "Login", "/auth/facebook"
+    #container = yield

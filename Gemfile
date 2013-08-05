@@ -18,14 +18,17 @@ gem 'coffee-rails', '~> 4.0.0'
 # Jquery Framework
 gem 'jquery-rails'
 
-# Backbone
-gem 'backbone-on-rails'
-
 # Slim template language for Rails
 gem 'slim-rails'
 
 # Front-end framework
 gem 'zurb-foundation'
+
+# Facebook Omniauth
+gem 'omniauth-facebook'
+
+# Decorator
+gem 'draper'
 
 group :test do
   gem 'factory_girl_rails'
@@ -35,6 +38,7 @@ end
 # Development & Test
 group :development, :test do
   gem 'rspec-rails'
+  gem 'capybara'
 end
 
 group :doc do

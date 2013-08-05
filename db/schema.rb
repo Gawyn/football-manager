@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130723165451) do
+ActiveRecord::Schema.define(version: 20130803134155) do
 
   create_table "league_positions", force: true do |t|
     t.integer  "points"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 20130723165451) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "league_id"
+    t.integer  "user_id"
   end
 
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 end
