@@ -7,6 +7,8 @@ describe Team do
 
   describe :associations do
     it { should respond_to :players }
+    it { should respond_to :leagues }
+    it { should respond_to :league_positions }
     it { should respond_to :user }
   end
 

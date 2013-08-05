@@ -1,7 +1,9 @@
 class Team < ActiveRecord::Base
   belongs_to :user
   has_many :players
-
+  has_many :league_positions 
+  has_many :leagues, through: :league_positions
+  
   validates_presence_of :name
   validates_uniqueness_of :name
   validate :starting_players_number  
