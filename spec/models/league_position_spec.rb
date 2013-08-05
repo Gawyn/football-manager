@@ -1,5 +1,14 @@
 require 'spec_helper'
 
 describe LeaguePosition do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  describe :attributes do
+    it { should respond_to :points }
+  end
+
+  describe :associations do
+    it { should respond_to :league }
+    it { should respond_to :team }
+  end
+  
 end
