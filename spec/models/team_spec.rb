@@ -35,5 +35,15 @@ describe Team do
         @team.players.starting.count.should == 11
       end
     end
+    
+    describe :assign_league! do ##
+      before do
+        @team = FactoryGirl.create :team
+      end
+      
+      it "should be assigned to a league" do
+        @team.league.should_not be_nil
+      end
+    end
   end
 end
