@@ -42,7 +42,7 @@ describe Team do
       end
       
       it "should be assigned to a league" do
-        @team.league.should_not be_nil
+        @team.leagues.should_not be_empty
       end
     end
   end
