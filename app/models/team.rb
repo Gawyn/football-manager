@@ -9,6 +9,7 @@ class Team < ActiveRecord::Base
   validate :starting_players_number  
 
   before_validation :create_roster!, on: :create
+  after_create :assign_league ##
 
   def attacking_quality
     (players.strikers.pluck(:quality) * 6 +
@@ -52,5 +53,15 @@ class Team < ActiveRecord::Base
         errors.add(:starting_players_number, "the number of players is different than 11")
       end
     end
+  end
+  
+  def assign_league ##
+    league = League.first
+    if league
+	  league.teams << self
+	else
+	  league = League.create
+	  league.teams << self	  
+	end	  
   end
 end
