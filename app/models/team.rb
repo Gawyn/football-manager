@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
   validate :starting_players_number  
 
   before_validation :create_roster!, on: :create
-  after_create :assign_league ##
+  after_create :assign_league 
 
   def attacking_quality
     (players.strikers.pluck(:quality) * 6 +
@@ -55,10 +55,11 @@ class Team < ActiveRecord::Base
     end
   end
   
-  def assign_league ##
-    league = League.first
+  def assign_league
+    league = League.where(:state => :open).first
     if league
 	  league.teams << self
+	  league.check_league_state
 	else
 	  league = League.create
 	  league.teams << self	  
