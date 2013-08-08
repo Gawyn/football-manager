@@ -6,5 +6,15 @@ describe League do
     it { should respond_to :teams }
   end
   
-  context "
+  describe :hooks do
+    before do
+      10.times do
+        @team = FactoryGirl.create :team
+      end
+    end
+    
+    it "should not be open" do
+      @team.leagues.first.state.should == "active"
+    end
+  end
 end
