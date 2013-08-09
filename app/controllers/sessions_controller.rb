@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
 
-    url_path = user.team ? team_path : new_team_path
+    url_path = user.team ? team_path(user.team) : new_team_path
     redirect_to url_path
   end
 
