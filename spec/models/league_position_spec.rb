@@ -4,6 +4,7 @@ describe LeaguePosition do
   
   describe :attributes do
     it { should respond_to :points }
+    it { should respond_to :position }
   end
 
   describe :associations do
