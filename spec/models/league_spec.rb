@@ -16,5 +16,9 @@ describe League do
     it "should not be open" do
       @team.leagues.first.state.should == "active"
     end
+    
+    it "should generate a new league after creating 11 teams" do      
+      expect { FactoryGirl.create :team }.to change { League.count }.by(1)
+    end
   end
 end
