@@ -23,15 +23,20 @@ class League < ActiveRecord::Base
     ## per què aqui no hi va un "save"?
   end
   
-  def set_league_rounds ##
-  @starting_date = ..
+  def set_league_rounds
+    @starting_date = Date.today
     18.times do
       round = round.create(:date => @starting_date + 7)
     end
   end
   
   def find_combinations
-    b = teams.combination(2).to_a    
+    teams.round_robin.each_with_index do |matches, index|
+      round = Round.create(date: Date.today + index.days)
+
+      matches.map do |local, visitor|
+        Match.create(home_team_id: local.id, away_team_id: visitor.id, round_id: round.id)
+      end
+    end
   end
-  
 end

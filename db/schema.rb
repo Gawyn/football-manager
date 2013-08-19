@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20130812150644) do
 
   create_table "league_positions", force: true do |t|
     t.integer  "points"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "team_id"
     t.integer  "league_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "position"
   end
 
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20130812150644) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "league_id"
     t.integer  "user_id"
+    t.integer  "league_id"
   end
 
   create_table "users", force: true do |t|

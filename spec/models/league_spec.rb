@@ -12,6 +12,11 @@ describe League do
         @team = FactoryGirl.create :team
       end
     end
+
+    it "should balbalba" do
+      @league = @team.leagues.first
+      p @league.find_combinations
+    end
     
     it "should not be open" do
       @team.leagues.first.state.should == "active"
